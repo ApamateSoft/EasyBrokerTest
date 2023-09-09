@@ -1,38 +1,48 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Descripción
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este es un proyecto creado en nest.js con la finalidad consumir la api de properties de EasyBrok en su entorno de 
+pruebas.
 
-## Description
+Se ha implementado una arquitectura en capas, con la finalidad de separar la lógica de negocio de la infraestructura del 
+mismo, esto además de crear un código menos acoplado facilita la implementación de pruebas.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+La estructura en capa optada se describe a continuación.
 
-## Installation
+**_Domain:_** Es la capa core del proyecto y en ella solo hemos definido entidades y uno que otra excepción propia.
+
+**_Data:_** Esta es la capa de acceso a datos, en ella se encuentra los repositorios o adaptadores que nos permiten 
+acceder a los recursos.
+
+**_UseCase:_** En esta capa se agregan los casos de usos, (interacciones que el usuario tendrá con el sistema).
+
+**_Infrastructure:_** Aquí se encuentran las implementaciones de los repositorios y de librerías necesarias para poder 
+hacer la consultas a la api de EasyBroker.
+
+Además, se ha elegido construir este proyecto en Nest.js, debido a su soporte con TypeScript, inyección de dependencias 
+y modularidad y soporte con jest por defecto.    
+
+---
+**_Nota_:** 
+
+Este es un proyecto para aplicar a EasyBroker. Debido a esto se ha obviado el uso de algunas prácticas con 
+la finalidad de agilizar su implementación, tales como: 
+- agregar un .env 
+- una mayor cobertura de los tests.
+- Una documentación de las apis, como de pronto se pudiera hacer usando (Swagger).
+
+También aclarar que el backend no es mi fuerte, me dedico más al desarrollo mobil, por lo cual quizás la estructura del 
+proyecto utilizada no sea lo más habitual para este tipo de proyectos.
+
+---
+
+## Instalación
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Ejecutar el proyecto
 
 ```bash
 # development
@@ -45,7 +55,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+El proyecto se ejecuta en el puerto `3000`, para acceder a la lista de propiedades se debe hacer la request a:
+`GET http://localhost:3000/properties?page=1`.
+
+## Ejecutar pruebas
 
 ```bash
 # unit tests
@@ -58,16 +71,11 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Contacto
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Linkedin - [Jesús Mendoza](https://www.linkedin.com/in/jesusamendozas/)
+- GitHub - [ApamateSoft](https://github.com/ApamateSoft)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+[MIT licensed](LICENSE).
