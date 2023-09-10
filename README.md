@@ -29,7 +29,6 @@ Este es un proyecto para aplicar a EasyBroker. Debido a esto se ha obviado el us
 la finalidad de agilizar su implementación, tales como: 
 - agregar un .env 
 - una mayor cobertura de los tests.
-- Una documentación de las apis, como de pronto se pudiera hacer usando (Swagger).
 
 También aclarar que el backend no es mi fuerte, me dedico más al desarrollo mobil, por lo cual quizás la estructura del 
 proyecto utilizada no sea lo más habitual para este tipo de proyectos.
@@ -57,6 +56,9 @@ $ npm run start:prod
 
 El proyecto se ejecuta en el puerto `3000`, para acceder a la lista de propiedades se debe hacer la request a:
 `GET http://localhost:3000/properties?page=1`.
+
+## Acceder a la documentación con swagger.
+Una vez levantado el proyecto acceda a [http://localhost:3000/api](http://localhost:3000/api) para ver la documentación.
 
 ## Ejecutar pruebas
 

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { PropertyPage } from './domain/entities/property_page.entity';
 import { GetPropertiesCase } from './useCase/get.properties.case';
+import { ResponsePropertyPageDto } from './dto/response-property-page.dto';
 
 @Injectable()
 export class PropertiesService {
@@ -9,7 +9,7 @@ export class PropertiesService {
     private readonly getPropertiesCase: GetPropertiesCase,
   ) {}
 
-  async findAll(page: number): Promise<PropertyPage> {
+  async findAll(page: number): Promise<ResponsePropertyPageDto> {
     return this.getPropertiesCase.invoke(page);
   }
 }

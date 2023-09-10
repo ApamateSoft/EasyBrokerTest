@@ -1,7 +1,7 @@
 import { NetworkError } from './network.error';
 
 export class BadRequestError extends Error implements NetworkError {
-  public readonly code: number = 401;
+  public readonly code: number = 400;
 
   constructor(public readonly message: string = 'Bad request') {
     super(message);
